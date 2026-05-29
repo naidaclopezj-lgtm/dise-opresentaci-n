@@ -101,39 +101,35 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 }
 </style>
 """, unsafe_allow_html=True)
-# ════════════════════════════════════════════════════════════════
-# HEADER
-# ════════════════════════════════════════════════════════════════
+# ── Header ─────────────────────────────────────────────────────────────
 
+st.markdown("""
+<div style='background:#1a3050;
+            color:white;
+            padding:1.75rem 2rem;
+            border-radius:8px;
+            margin-bottom:1.5rem;'>
 
-with col_title:
-    st.markdown("""
-    <div style='background:#1a3050;
-                color:white;
-                padding:1.75rem 2rem;
-                border-radius:8px;
-                margin-bottom:1rem;'>
-
-        <div style='font-family:Source Serif 4, serif;
-                    font-size:1.9rem;
-                    font-weight:600;
-                    line-height:1.2;'>
-            Diseño Final y Validación de Prototipo
-        </div>
-
-        <div style='font-size:1.15rem;
-                    margin-top:0.35rem;'>
-            Subsistema de Alimentación para Máquina Procesadora de Plátano
-        </div>
-
-        <div style='font-size:0.9rem;
-                    margin-top:0.7rem;
-                    opacity:0.8;'>
-            Milestone 3 · Diseño Mecánico I · Universidad Autónoma de Manizales · 2026-I
-        </div>
-
+    <div style='font-family:"Source Serif 4", serif;
+                font-size:1.9rem;
+                font-weight:600;
+                line-height:1.2;'>
+        Diseño Final y Validación de Prototipo
     </div>
-    """, unsafe_allow_html=True)
+
+    <div style='font-size:1.15rem;
+                margin-top:0.35rem;'>
+        Subsistema de Alimentación para Máquina Procesadora de Plátano
+    </div>
+
+    <div style='font-size:0.9rem;
+                margin-top:0.7rem;
+                opacity:0.8;'>
+        Milestone 3 · Diseño Mecánico I · Universidad Autónoma de Manizales · 2026-I
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
 
 with st.sidebar:
 
