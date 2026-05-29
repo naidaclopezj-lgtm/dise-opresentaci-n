@@ -682,59 +682,97 @@ elif selected == "Prototipo":
     with col2:
         st.info("⚠️ **Deslizamiento excesivo con banda de caucho.** Solución: lija abrasiva tipo 80 en elementos de transmisión para aumentar fricción.")
 
-# ════════════════════════════════════════════════════════════════════[...]
-# 8. EVIDENCIA (NUEVA SECCIÓN)
-# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Evidencia":
     st.markdown('<div class="section-heading">8. Evidencia Fotográfica y Resultados Operacionales</div>', unsafe_allow_html=True)
 
     st.markdown("""
-    Esta sección contiene registros fotográficos del prototipo en operación, pruebas de desempeño
-    y validación del cumplimiento de requerimientos. Todas las imágenes documentan el comportamiento
-    del sistema durante las pruebas de funcionamiento.
+    Esta sección contiene registros fotográficos y audiovisuales del prototipo en operación,
+    pruebas de desempeño y validación del cumplimiento de requerimientos. Las evidencias
+    documentan el comportamiento del sistema durante las pruebas de funcionamiento.
     """)
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
-    st.markdown("**Pruebas operacionales del prototipo**")
+
+    # =========================
+    # EVIDENCIA FOTOGRÁFICA
+    # =========================
 
     col1, col2 = st.columns(2)
-    
+
     with col1:
-        st.markdown("**Operación con carga nominal**")
         try:
-            st.image("imagenes/evidencia1.jpg", caption="Sistema en operación con producto", use_column_width=True)
+            st.image(
+                "imagenes/evidencia1.jpg",
+                use_column_width=True
+            )
         except:
             st.warning("📷 Imagen no disponible: evidencia1.jpg")
-    
+
     with col2:
-        st.markdown("**Detalle de mecanismo de alimentación**")
         try:
-            st.image("imagenes/evidencia2.jpg", caption="Flujo de producto en banda inclinada", use_column_width=True)
+            st.image(
+                "imagenes/evidencia2.jpg",
+                use_column_width=True
+            )
         except:
             st.warning("📷 Imagen no disponible: evidencia2.jpg")
 
-    st.markdown('<hr class="divider">', unsafe_allow_html=True)
-    st.markdown("**Mediciones y validación**")
-
     col3, col4 = st.columns(2)
-    
+
     with col3:
-        st.markdown("**Verificación de alineación**")
         try:
-            st.image("imagenes/evidencia3.jpg", caption="Producto correctamente alineado", use_column_width=True)
+            st.image(
+                "imagenes/evidencia3.jpg",
+                use_column_width=True
+            )
         except:
             st.warning("📷 Imagen no disponible: evidencia3.jpg")
-    
+
     with col4:
-        st.markdown("**Inspección de daño superficial**")
         try:
-            st.image("imagenes/evidencia4.jpg", caption="Análisis de integridad del producto", use_column_width=True)
+            st.image(
+                "imagenes/evidencia4.jpg",
+                use_column_width=True
+            )
         except:
             st.warning("📷 Imagen no disponible: evidencia4.jpg")
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
+
+    # =========================
+    # EVIDENCIA EN VIDEO
+    # =========================
+
+    st.markdown("### Evidencia en video")
+
+    colv1, colv2, colv3 = st.columns(3)
+
+    with colv1:
+        try:
+            st.video("imagenes/video1.mp4")
+        except:
+            st.warning("🎥 Video no disponible: video1.mp4")
+
+    with colv2:
+        try:
+            st.video("imagenes/video2.mp4")
+        except:
+            st.warning("🎥 Video no disponible: video2.mp4")
+
+    with colv3:
+        try:
+            st.video("imagenes/video3.mp4")
+        except:
+            st.warning("🎥 Video no disponible: video3.mp4")
+
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+
+    # =========================
+    # TABLA DE VERIFICACIÓN
+    # =========================
+
     st.markdown("**Especificaciones técnicas verificadas**")
-    
+
     verification_data = {
         "Parámetro verificado": [
             "Tasa de alimentación",
@@ -761,14 +799,19 @@ elif selected == "Evidencia":
             "✓ 72 dB",
         ],
     }
+
     df_verify = pd.DataFrame(verification_data)
-    
+
     def color_verify(val):
         if val.startswith("✓"):
             return "background-color:#dcfce7; color:#15803d; font-weight:600"
         return ""
-    
-    st.dataframe(df_verify.style.map(color_verify, subset=["Resultado"]), use_container_width=True, hide_index=True)
+
+    st.dataframe(
+        df_verify.style.map(color_verify, subset=["Resultado"]),
+        use_container_width=True,
+        hide_index=True
+    )
 
 # ════════════════════════════════════════════════════════════════════[...]
 # 9. DISCUSIÓN
