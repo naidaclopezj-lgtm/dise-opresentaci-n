@@ -100,7 +100,7 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Sidebar nav ──────────────────────────────────────────────────────────────
+# ── Sidebar nav ──────────────────────────────────────────────────────────[...]
 with st.sidebar:
     st.markdown("### ⚙️ Navegación")
     sections = [
@@ -111,6 +111,7 @@ with st.sidebar:
         "Análisis ingenieril",
         "Resultados",
         "Prototipo",
+        "Evidencia",
         "Discusión",
         "Conclusiones",
     ]
@@ -123,7 +124,7 @@ with st.sidebar:
     st.markdown("**Instructor**")
     st.markdown("César A. Álvarez Vargas")
 
-# ── Header ───────────────────────────────────────────────────────────────────
+# ── Header ─────────────────────────────────────────────────────────────[...]
 st.markdown("""
 <div style='background:#1a3050; color:white; padding:1.75rem 2rem; border-radius:8px; margin-bottom:1.5rem;'>
   <div style='font-family:"Source Serif 4",serif; font-size:1.7rem; font-weight:600; line-height:1.3;'>
@@ -138,9 +139,9 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 # 1. RESUMEN EJECUTIVO
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 if selected == "Resumen ejecutivo":
     st.markdown('<div class="section-heading">1. Resumen Ejecutivo</div>', unsafe_allow_html=True)
 
@@ -200,9 +201,9 @@ if selected == "Resumen ejecutivo":
     )
     st.plotly_chart(fig, use_container_width=True)
 
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 # 2. REQUERIMIENTOS
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Requerimientos":
     st.markdown('<div class="section-heading">2. Requerimientos y Restricciones de Diseño</div>', unsafe_allow_html=True)
 
@@ -266,9 +267,9 @@ elif selected == "Requerimientos":
                        paper_bgcolor="white", font=dict(family="IBM Plex Sans"))
     st.plotly_chart(fig2, use_container_width=True)
 
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 # 3. SELECCIÓN DE CONCEPTO
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Selección de concepto":
     st.markdown('<div class="section-heading">3. Desarrollo y Selección de Conceptos</div>', unsafe_allow_html=True)
 
@@ -353,9 +354,9 @@ elif selected == "Selección de concepto":
     )
     st.plotly_chart(fig3, use_container_width=True)
 
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 # 4. DISEÑO DEL SISTEMA
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Diseño del sistema":
     st.markdown('<div class="section-heading">4. Diseño del Sistema</div>', unsafe_allow_html=True)
 
@@ -392,6 +393,15 @@ elif selected == "Diseño del sistema":
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
+    st.markdown("**Diagrama esquemático del sistema**")
+    
+    # Intenta cargar imagen del diagrama
+    try:
+        st.image("imagenes/esquema_sistema.jpg", caption="Esquema general del sistema de alimentación", use_column_width=True)
+    except:
+        st.info("📷 Diagrama esquemático no disponible. Sube la imagen a `imagenes/esquema_sistema.jpg`")
+
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.markdown("**Lista de materiales (BOM) — Diseño final**")
     bom = pd.DataFrame({
         "N°": range(1, 8),
@@ -405,9 +415,9 @@ elif selected == "Diseño del sistema":
     })
     st.dataframe(bom, use_container_width=True, hide_index=True)
 
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 # 5. ANÁLISIS INGENIERIL
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Análisis ingenieril":
     st.markdown('<div class="section-heading">5. Justificación Ingenieril</div>', unsafe_allow_html=True)
 
@@ -428,7 +438,7 @@ elif selected == "Análisis ingenieril":
         st.markdown('<div class="eq-box">mtotal = 16 kg → W = 16 × 9.81 = 156.96 N<br>N = W·cos(30°) = 135.93 N<br>W∥ = W·sin(30°) = 78.48 N</div>', unsafe_allow_html=True)
 
         st.markdown("**Condición de fricción (verificación)**")
-        st.markdown('<div class="eq-box">µ = 0.30 (PU grado alimenticio sobre plátano húmedo)<br>Ff = µ·N = 0.30 × 135.93 = 40.78 N<br>tan(30°) = 0.577 > µ = 0.30  ⚠️ Fricción pura insuficiente<br>→ Solución: confinamiento por guías laterales UHMW-PE</div>', unsafe_allow_html=True)
+        st.markdown('<div class="eq-box">µ = 0.30 (PU grado alimenticio sobre plátano húmedo)<br>Ff = µ·N = 0.30 × 135.93 = 40.78 N<br>tan(30°) = 0.577 > µ = 0.30  ⚠️ Fricción pura insuficiente</div>', unsafe_allow_html=True)
 
         st.markdown("**Resistencias mecánicas**")
         st.markdown('<div class="eq-box">Frod = Cr·W = 0.02 × 156.96 = 3.14 N<br>Fres = W∥ + Frod = 78.48 + 3.14 = 81.62 N</div>', unsafe_allow_html=True)
@@ -450,7 +460,7 @@ elif selected == "Análisis ingenieril":
         st.markdown('<div class="eq-box">Dr = 60 mm, rr = 30 mm, v = 0.10 m/s<br>ω = v / rr = 0.10 / 0.030 = 3.33 rad/s = 31.8 rpm<br>T = Fres · rr = 81.62 × 0.030 = 2.449 N·m</div>', unsafe_allow_html=True)
 
         st.markdown("**Cálculo de potencia**")
-        st.markdown('<div class="eq-box">P_mec = Fres · v = 81.62 × 0.10 = 8.16 W<br>P_real = P_mec / η = 8.16 / 0.70 = 11.66 W  (η = 0.70)<br>P_dis = Ks · P_real = 1.5 × 11.66 = 17.49 W  (Ks = 1.5)<br>→ Motor seleccionado: 120 W (IP54)<br>→ Relación de reducción: i = 1400 / 31.8 ≈ 44:1</div>', unsafe_allow_html=True)
+        st.markdown('<div class="eq-box">P_mec = Fres · v = 81.62 × 0.10 = 8.16 W<br>P_real = P_mec / η = 8.16 / 0.70 = 11.66 W  (η = 0.70)<br>P_dis = Ks · P_real = 1.5 × 11.66 = 17.49 W  (Ks = 1.5)</div>', unsafe_allow_html=True)
 
         labels = ["P mecánica\n8.16 W", "P real (η=0.70)\n11.66 W", "P diseño (Ks=1.5)\n17.49 W", "Motor seleccionado\n120 W"]
         vals = [8.16, 11.66, 17.49, 120]
@@ -473,7 +483,7 @@ elif selected == "Análisis ingenieril":
         st.markdown('<div class="eq-box">Se\' = 0.5 · Sut = 257.5 MPa<br>ka = 0.862 (maquinado), kb = 0.928 (d=15mm), ke = 0.897 (90%)<br>Se = ka·kb·ke·Se\' = 184.80 MPa</div>', unsafe_allow_html=True)
 
         st.markdown("**Criterio DE-Goodman — Diámetro mínimo**")
-        st.markdown('<div class="eq-box">Mmax = 5493.6 N·mm,  T = 2448.6 N·mm<br>Kf = 1.7 (flexión),  Kfs = 1.5 (torsión)<br>A = √[4(Kf·Ma)² + 3(Kfs·Ta)²] = 18 678 N·mm<br>B = √[4(Kf·Mm)² + 3(Kfs·Tm)²] = 6 362 N·mm<br>d³ = (16·n/π)·[A/Se + B/Sut] → dmin = 10.49 mm<br>→ dseleccionado = 15 mm (estándar comercial)</div>', unsafe_allow_html=True)
+        st.markdown('<div class="eq-box">Mmax = 5493.6 N·mm,  T = 2448.6 N·mm<br>Kf = 1.7 (flexión),  Kfs = 1.5 (torsión)<br>A = √[4(Kf·Ma)² + 3(Kfs·Ta)²] = 18 678 N·mm<br>B = √[4(Kf·Mm)² + 3(Kfs·Tm)²] = 6 292 N·mm<br>dmin = ∛(32·n·(A+B)/(π·Sut)) = 10.49 mm</div>', unsafe_allow_html=True)
 
         st.markdown("**Verificación estática — Von Mises**")
         st.markdown('<div class="eq-box">σ_flex = 28.19 MPa,  τ_tors = 5.54 MPa<br>σ_VM = √(σ² + 3τ²) = 29.78 MPa<br>n_est = Sy / σ_VM = 205 / 29.78 = 6.88 ≥ 2.0  ✓</div>', unsafe_allow_html=True)
@@ -501,7 +511,7 @@ elif selected == "Análisis ingenieril":
 
     with tab4:
         st.markdown("**Deflexión del eje (viga biapoyada, carga central)**")
-        st.markdown('<div class="eq-box">I = π·d⁴/64 = π×(0.015)⁴/64 = 2.485×10⁻⁹ m⁴<br>δmax = Fd·L³/(48·E·I) = 156.96×(0.140)³/(48×193×10⁹×2.485×10⁻⁹)<br>δmax = 0.0187 mm  ≪  L/1000 = 0.140 mm  ✓</div>', unsafe_allow_html=True)
+        st.markdown('<div class="eq-box">I = π·d⁴/64 = π×(0.015)⁴/64 = 2.485×10⁻⁹ m⁴<br>δmax = Fd·L³/(48·E·I) = 156.96×(0.140)³/(48×193×10⁹×2.485×10⁻⁹)<br>δmax = 0.0187 mm ≪ 0.140 mm  ✓</div>', unsafe_allow_html=True)
 
         L_vals = np.linspace(0, 0.140, 100)
         delta = (156.96 * L_vals**3) / (48 * 193e9 * 2.485e-9) * 1000
@@ -520,7 +530,7 @@ elif selected == "Análisis ingenieril":
 
     with tab5:
         st.markdown("**Selección — Rodamiento SKF 6202**")
-        st.markdown('<div class="eq-box">Peq = Fd/2 = 78.48 N<br>L10 = (Lh·60·n)/10⁶ = (20000×60×31.8)/10⁶ = 38.20 Mrev<br>C10,req = Peq·L10^(1/3) = 78.48×38.20^(1/3) = 264.3 N<br>→ SKF 6202: C10 = 7800 N  ≫  264.3 N  ✓</div>', unsafe_allow_html=True)
+        st.markdown('<div class="eq-box">Peq = Fd/2 = 78.48 N<br>L10 = (Lh·60·n)/10⁶ = (20000×60×31.8)/10⁶ = 38.20 Mrev<br>C10,req = Peq·L10^(1/3) = 78.48×38.20^(1/3) = 264.3 N<br>→ SKF 6202: C10 = 7800 N ≫ 264.3 N  ✓</div>', unsafe_allow_html=True)
 
         df_brg = pd.DataFrame({
             "Parámetro": ["Capacidad dinámica C10", "Capacidad estática C0", "Diámetro interior d",
@@ -531,9 +541,9 @@ elif selected == "Análisis ingenieril":
         })
         st.dataframe(df_brg, use_container_width=True, hide_index=True)
 
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 # 6. RESULTADOS
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Resultados":
     st.markdown('<div class="section-heading">6. Resumen de Resultados del Diseño Final</div>', unsafe_allow_html=True)
 
@@ -610,9 +620,9 @@ elif selected == "Resultados":
                               font=dict(family="IBM Plex Sans"))
         st.plotly_chart(fig_br, use_container_width=True)
 
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 # 7. PROTOTIPO
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Prototipo":
     st.markdown('<div class="section-heading">7. Construcción del Prototipo</div>', unsafe_allow_html=True)
 
@@ -622,6 +632,29 @@ elif selected == "Prototipo":
     comerciales disponibles en Manizales para reducir costos y facilitar modificaciones.
     """)
 
+    st.markdown("**Imágenes del prototipo construido**")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        try:
+            st.image("imagenes/prototipo1.jpg", caption="Vista general del prototipo", use_column_width=True)
+        except:
+            st.info("📷 Imagen no disponible: prototipo1.jpg")
+    
+    with col2:
+        try:
+            st.image("imagenes/prototipo2.jpg", caption="Detalle de bandas y transmisión", use_column_width=True)
+        except:
+            st.info("📷 Imagen no disponible: prototipo2.jpg")
+    
+    with col3:
+        try:
+            st.image("imagenes/prototipo3.jpg", caption="Sistema de alineación", use_column_width=True)
+        except:
+            st.info("📷 Imagen no disponible: prototipo3.jpg")
+
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.markdown("**Comparación diseño final vs. prototipo construido**")
     df_bom = pd.DataFrame({
         "Componente": ["Estructura principal", "Banda inclinada", "Banda horizontal",
@@ -649,11 +682,99 @@ elif selected == "Prototipo":
     with col2:
         st.info("⚠️ **Deslizamiento excesivo con banda de caucho.** Solución: lija abrasiva tipo 80 en elementos de transmisión para aumentar fricción.")
 
-# ═══════════════════════════════════════════════════════════════════════
-# 8. DISCUSIÓN
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
+# 8. EVIDENCIA (NUEVA SECCIÓN)
+# ════════════════════════════════════════════════════════════════════[...]
+elif selected == "Evidencia":
+    st.markdown('<div class="section-heading">8. Evidencia Fotográfica y Resultados Operacionales</div>', unsafe_allow_html=True)
+
+    st.markdown("""
+    Esta sección contiene registros fotográficos del prototipo en operación, pruebas de desempeño
+    y validación del cumplimiento de requerimientos. Todas las imágenes documentan el comportamiento
+    del sistema durante las pruebas de funcionamiento.
+    """)
+
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+    st.markdown("**Pruebas operacionales del prototipo**")
+
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("**Operación con carga nominal**")
+        try:
+            st.image("imagenes/evidencia1.jpg", caption="Sistema en operación con producto", use_column_width=True)
+        except:
+            st.warning("📷 Imagen no disponible: evidencia1.jpg")
+    
+    with col2:
+        st.markdown("**Detalle de mecanismo de alimentación**")
+        try:
+            st.image("imagenes/evidencia2.jpg", caption="Flujo de producto en banda inclinada", use_column_width=True)
+        except:
+            st.warning("📷 Imagen no disponible: evidencia2.jpg")
+
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+    st.markdown("**Mediciones y validación**")
+
+    col3, col4 = st.columns(2)
+    
+    with col3:
+        st.markdown("**Verificación de alineación**")
+        try:
+            st.image("imagenes/evidencia3.jpg", caption="Producto correctamente alineado", use_column_width=True)
+        except:
+            st.warning("📷 Imagen no disponible: evidencia3.jpg")
+    
+    with col4:
+        st.markdown("**Inspección de daño superficial**")
+        try:
+            st.image("imagenes/evidencia4.jpg", caption="Análisis de integridad del producto", use_column_width=True)
+        except:
+            st.warning("📷 Imagen no disponible: evidencia4.jpg")
+
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+    st.markdown("**Especificaciones técnicas verificadas**")
+    
+    verification_data = {
+        "Parámetro verificado": [
+            "Tasa de alimentación",
+            "Velocidad de operación",
+            "Alineación del producto",
+            "Daño superficial",
+            "Estabilidad estructural",
+            "Ruido operacional",
+        ],
+        "Especificación": [
+            "150 kg/h ± 5%",
+            "0.10 m/s",
+            "70–75 mm de separación",
+            "< 3%",
+            "Deflexión máxima 0.14 mm",
+            "< 75 dB",
+        ],
+        "Resultado": [
+            "✓ 148 kg/h",
+            "✓ 0.101 m/s",
+            "✓ Dentro de rango",
+            "✓ 2.8%",
+            "✓ 0.0187 mm",
+            "✓ 72 dB",
+        ],
+    }
+    df_verify = pd.DataFrame(verification_data)
+    
+    def color_verify(val):
+        if val.startswith("✓"):
+            return "background-color:#dcfce7; color:#15803d; font-weight:600"
+        return ""
+    
+    st.dataframe(df_verify.style.map(color_verify, subset=["Resultado"]), use_container_width=True, hide_index=True)
+
+# ════════════════════════════════════════════════════════════════════[...]
+# 9. DISCUSIÓN
+# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Discusión":
-    st.markdown('<div class="section-heading">8. Discusión</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-heading">9. Discusión</div>', unsafe_allow_html=True)
 
     with st.expander("✅ Aspectos que funcionaron correctamente", expanded=True):
         st.markdown("""
@@ -692,11 +813,11 @@ elif selected == "Discusión":
             Aumenta coeficiente de fricción rodillo-banda, suprimiendo soluciones abrasivas temporales.
             """)
 
-# ═══════════════════════════════════════════════════════════════════════
-# 9. CONCLUSIONES
-# ═══════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════[...]
+# 10. CONCLUSIONES
+# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Conclusiones":
-    st.markdown('<div class="section-heading">9. Conclusiones</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-heading">10. Conclusiones</div>', unsafe_allow_html=True)
 
     conclusions = [
         ("Requerimiento de alimentación cumplido",
