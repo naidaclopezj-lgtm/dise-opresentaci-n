@@ -99,41 +99,62 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 }
 </style>
 """, unsafe_allow_html=True)
+# ════════════════════════════════════════════════════════════════
+# HEADER
+# ════════════════════════════════════════════════════════════════
 
-col_logo, col_title = st.columns([1,6])
+col_logo, col_title = st.columns([1, 7])
 
 with col_logo:
-    st.image("imagenes/logo_uam.jpg", width=110)
+
+    logo_path = Path("imagenes/logo_uam.jpg")
+
+    if logo_path.exists():
+        st.image(str(logo_path), width=120)
+    else:
+        st.warning("Logo no encontrado")
 
 with col_title:
+
     st.markdown("""
     <div style='background:#1a3050;
                 color:white;
                 padding:1.75rem 2rem;
-                border-radius:8px;'>
+                border-radius:8px;
+                margin-bottom:0.5rem;'>
 
         <div style='font-family:"Source Serif 4",serif;
-                    font-size:1.7rem;
-                    font-weight:600;'>
+                    font-size:1.9rem;
+                    font-weight:600;
+                    line-height:1.2;'>
             Diseño Final y Validación de Prototipo
         </div>
 
-        <div style='font-size:1.1rem; margin-top:0.3rem;'>
+        <div style='font-size:1.15rem;
+                    margin-top:0.35rem;'>
             Subsistema de Alimentación para Máquina Procesadora de Plátano
         </div>
 
-        <div style='font-size:0.85rem;
-                    margin-top:0.6rem;
-                    opacity:0.7;'>
+        <div style='font-size:0.9rem;
+                    margin-top:0.7rem;
+                    opacity:0.8;'>
             Milestone 3 · Diseño Mecánico I · Universidad Autónoma de Manizales · 2026-I
         </div>
 
     </div>
     """, unsafe_allow_html=True)
+
+# ════════════════════════════════════════════════════════════════
+# MENÚ LATERAL
+# ════════════════════════════════════════════════════════════════
+
 with st.sidebar:
+
+    st.markdown("## Navegación")
+
     selected = option_menu(
-        "Navegación",
-        [
+        menu_title=None,
+        options=[
             "Resumen ejecutivo",
             "Diseño del sistema",
             "Prototipo",
@@ -142,14 +163,34 @@ with st.sidebar:
             "Conclusiones"
         ],
         icons=[
-            "house",
-            "gear",
+            "house-fill",
+            "gear-fill",
             "tools",
-            "camera",
-            "graph-up",
-            "check-circle"
+            "camera-fill",
+            "bar-chart-fill",
+            "check-circle-fill"
         ],
-        default_index=0
+        default_index=0,
+        styles={
+            "container": {
+                "padding": "0!important",
+                "background-color": "#ffffff"
+            },
+            "icon": {
+                "color": "#1a3050",
+                "font-size": "16px"
+            },
+            "nav-link": {
+                "font-size": "14px",
+                "text-align": "left",
+                "margin": "2px",
+                "--hover-color": "#eef3f8"
+            },
+            "nav-link-selected": {
+                "background-color": "#1a3050",
+                "color": "white"
+            }
+        }
     )
 # ════════════════════════════════════════════════════════════════════[...]
 # 1. RESUMEN EJECUTIVO
