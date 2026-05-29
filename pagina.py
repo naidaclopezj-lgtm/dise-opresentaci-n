@@ -100,36 +100,12 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Sidebar nav ──────────────────────────────────────────────────────────[...]
-with st.sidebar:
-    st.markdown("### ⚙️ Navegación")
-    sections = [
-        "Resumen ejecutivo",
-        "Requerimientos",
-        "Selección de concepto",
-        "Diseño del sistema",
-        "Análisis ingenieril",
-        "Resultados",
-        "Prototipo",
-        "Evidencia",
-        "Discusión",
-        "Conclusiones",
-    ]
-    selected = st.radio("Ir a sección", sections, label_visibility="collapsed")
-    st.markdown("---")
-    st.markdown("**Autores**")
-    st.markdown("Andrés F. Narváez Hoyos  \nNaida C. López")
-    st.markdown("**Curso**")
-    st.markdown("Diseño Mecánico I — UAM 2026-I")
-    st.markdown("**Instructor**")
-    st.markdown("César A. Álvarez Vargas")
-
-col_logo, col_text = st.columns([1,5])
+col_logo, col_title = st.columns([1,6])
 
 with col_logo:
-    st.image("imagenes/logo_uam.jpg", width=120)
+    st.image("imagenes/logo_uam.png", width=110)
 
-with col_text:
+with col_title:
     st.markdown("""
     <div style='background:#1a3050;
                 color:white;
