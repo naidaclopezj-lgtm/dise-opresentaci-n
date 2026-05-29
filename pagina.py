@@ -160,53 +160,20 @@ with st.sidebar:
             "Conclusiones"
         ]
     )
-# ════════════════════════════════════════════════════════════════
-# MENÚ LATERAL
-# ════════════════════════════════════════════════════════════════
-
 with st.sidebar:
 
     st.markdown("## Navegación")
 
-    selected = option_menu(
-        menu_title=None,
-        options=[
+    selected = st.radio(
+        "",
+        [
             "Resumen ejecutivo",
             "Diseño del sistema",
             "Prototipo",
             "Evidencia",
             "Discusión",
             "Conclusiones"
-        ],
-        icons=[
-            "house-fill",
-            "gear-fill",
-            "tools",
-            "camera-fill",
-            "bar-chart-fill",
-            "check-circle-fill"
-        ],
-        default_index=0,
-        styles={
-            "container": {
-                "padding": "0!important",
-                "background-color": "#ffffff"
-            },
-            "icon": {
-                "color": "#1a3050",
-                "font-size": "16px"
-            },
-            "nav-link": {
-                "font-size": "14px",
-                "text-align": "left",
-                "margin": "2px",
-                "--hover-color": "#eef3f8"
-            },
-            "nav-link-selected": {
-                "background-color": "#1a3050",
-                "color": "white"
-            }
-        }
+        ]
     )
 # ════════════════════════════════════════════════════════════════════[...]
 # 1. RESUMEN EJECUTIVO
