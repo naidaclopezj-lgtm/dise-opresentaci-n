@@ -107,11 +107,6 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 
 col_logo, col_title = st.columns([1,7])
 
-with col_logo:
-    try:
-        st.image("imagenes/logo_uam.jpg", width=120)
-    except:
-        pass
 
 with col_title:
     st.markdown("""
