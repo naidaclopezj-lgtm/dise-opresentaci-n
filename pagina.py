@@ -127,7 +127,7 @@ with st.sidebar:
 col_logo, col_text = st.columns([1,5])
 
 with col_logo:
-    st.image("imagenes/logo_uam.png", width=120)
+    st.image("imagenes/logo_uam.jpg", width=120)
 
 with col_text:
     st.markdown("""
