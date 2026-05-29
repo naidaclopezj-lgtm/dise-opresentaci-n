@@ -103,7 +103,7 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 col_logo, col_title = st.columns([1,6])
 
 with col_logo:
-    st.image("imagenes/logo_uam.png", width=110)
+    st.image("imagenes/logo_uam.jpg", width=110)
 
 with col_title:
     st.markdown("""
