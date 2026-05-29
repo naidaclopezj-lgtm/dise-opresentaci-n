@@ -105,8 +105,6 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 # HEADER
 # ════════════════════════════════════════════════════════════════
 
-col_logo, col_title = st.columns([1,7])
-
 
 with col_title:
     st.markdown("""
