@@ -130,7 +130,27 @@ with col_title:
 
     </div>
     """, unsafe_allow_html=True)
-
+with st.sidebar:
+    selected = option_menu(
+        "Navegación",
+        [
+            "Resumen ejecutivo",
+            "Diseño del sistema",
+            "Prototipo",
+            "Evidencia",
+            "Discusión",
+            "Conclusiones"
+        ],
+        icons=[
+            "house",
+            "gear",
+            "tools",
+            "camera",
+            "graph-up",
+            "check-circle"
+        ],
+        default_index=0
+    )
 # ════════════════════════════════════════════════════════════════════[...]
 # 1. RESUMEN EJECUTIVO
 # ════════════════════════════════════════════════════════════════════[...]
