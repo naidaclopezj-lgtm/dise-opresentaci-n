@@ -105,27 +105,23 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 # HEADER
 # ════════════════════════════════════════════════════════════════
 
-col_logo, col_title = st.columns([1, 7])
+col_logo, col_title = st.columns([1,7])
 
 with col_logo:
-
-    logo_path = Path("imagenes/logo_uam.jpg")
-
-    if logo_path.exists():
-        st.image(str(logo_path), width=120)
-    else:
-        st.warning("Logo no encontrado")
+    try:
+        st.image("imagenes/logo_uam.jpg", width=120)
+    except:
+        pass
 
 with col_title:
-
     st.markdown("""
     <div style='background:#1a3050;
                 color:white;
                 padding:1.75rem 2rem;
                 border-radius:8px;
-                margin-bottom:0.5rem;'>
+                margin-bottom:1rem;'>
 
-        <div style='font-family:"Source Serif 4",serif;
+        <div style='font-family:Source Serif 4, serif;
                     font-size:1.9rem;
                     font-weight:600;
                     line-height:1.2;'>
