@@ -145,21 +145,7 @@ with col_title:
 
     </div>
     """, unsafe_allow_html=True)
-with st.sidebar:
 
-    st.markdown("## Navegación")
-
-    selected = st.radio(
-        "",
-        [
-            "Resumen ejecutivo",
-            "Diseño del sistema",
-            "Prototipo",
-            "Evidencia",
-            "Discusión",
-            "Conclusiones"
-        ]
-    )
 with st.sidebar:
 
     st.markdown("## Navegación")
