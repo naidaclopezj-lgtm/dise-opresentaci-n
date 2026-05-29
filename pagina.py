@@ -4,6 +4,8 @@ import plotly.express as px
 import pandas as pd
 import numpy as np
 
+from pathlib import Path
+from streamlit_option_menu import option_menu
 st.set_page_config(
     page_title="Milestone 3 — Subsistema de Alimentación de Plátano",
     page_icon="⚙️",
