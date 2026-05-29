@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 from pathlib import Path
-from streamlit_option_menu import option_menu
+
 st.set_page_config(
     page_title="Milestone 3 — Subsistema de Alimentación de Plátano",
     page_icon="⚙️",
@@ -145,7 +145,21 @@ with col_title:
 
     </div>
     """, unsafe_allow_html=True)
+with st.sidebar:
 
+    st.markdown("## Navegación")
+
+    selected = st.radio(
+        "",
+        [
+            "Resumen ejecutivo",
+            "Diseño del sistema",
+            "Prototipo",
+            "Evidencia",
+            "Discusión",
+            "Conclusiones"
+        ]
+    )
 # ════════════════════════════════════════════════════════════════
 # MENÚ LATERAL
 # ════════════════════════════════════════════════════════════════
