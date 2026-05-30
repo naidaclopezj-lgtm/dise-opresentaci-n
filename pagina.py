@@ -621,22 +621,20 @@ elif selected == "Resultados":
                               font=dict(family="IBM Plex Sans"))
         st.plotly_chart(fig_br, use_container_width=True)
 
-# ════════════════════════════════════════════════════════════════════[...]
-# 7. PROTOTIPO
-# ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Prototipo":
-    st.markdown('<div class="section-heading">7. Construcción del Prototipo</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-heading">7. Construcción del Prototipo</div>',
+        unsafe_allow_html=True
+    )
 
     st.markdown("""
-    El prototipo fue ensamblado y ajustado durante más de un mes, con iteraciones en alineación
-    de bandas, tensión, transmisión de torque y estabilidad estructural. Se utilizaron materiales
-    comerciales disponibles en Manizales para reducir costos y facilitar modificaciones.
+    El prototipo fue ensamblado y ajustado durante más de un mes...
     """)
 
-     st.markdown("**Imágenes del prototipo construido**")
-    
-    col1, col2, col3, col4, col5 = st.columns(5)
-    
+    st.markdown("**Imágenes del prototipo construido**")
+
+    col1, col2, col3 = st.columns(3)
+
     with col1:
         try:
             st.image(
@@ -646,7 +644,7 @@ elif selected == "Prototipo":
             )
         except:
             st.info("📷 Imagen no disponible: prototipo1.jpg")
-    
+
     with col2:
         try:
             st.image(
@@ -656,8 +654,8 @@ elif selected == "Prototipo":
             )
         except:
             st.info("📷 Imagen no disponible: prototipo2.jpg")
-    
-    with col5:
+
+    with col3:
         try:
             st.video("imagenes/video5.mov")
         except:
