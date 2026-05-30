@@ -124,46 +124,7 @@ with st.sidebar:
     st.markdown("**Instructor**")
     st.markdown("César A. Álvarez Vargas")
 
-# ── Header ─────────────────────────────────────────────────────────────[...]
-st.markdown("""
-<div style='background:#1a3050; color:white; padding:1.75rem 2rem; border-radius:8px; margin-bottom:1.5rem;'>
-  <div style='font-family:"Source Serif 4",serif; font-size:1.7rem; font-weight:600; line-height:1.3;'>
-    Diseño Final y Validación de Prototipo
-  </div>
-  <div style='font-size:1.1rem; margin-top:0.3rem; opacity:0.9;'>
-    Subsistema de Alimentación para Máquina Procesadora de Plátano
-  </div>
-  <div style='font-size:0.85rem; margin-top:0.6rem; opacity:0.7;'>
-    Milestone 3 · Diseño Mecánico I · Universidad Autónoma de Manizales · 2026-I
-  </div>
-</div>
-""", unsafe_allow_html=True)
-# Logo institucional
-st.image(
-    "imagenes/logo-uam.png",
-    width=180
-)
 
-# Encabezado
-st.markdown("""
-<div style='background:#1a3050;
-            color:white;
-            padding:1.75rem 2rem;
-            border-radius:8px;
-            margin-bottom:1.5rem;'>
-
-    <div style='font-family:"Source Serif 4", serif;
-                font-size:1.9rem;
-                font-weight:600;'>
-        Diseño Final y Validación de Prototipo
-    </div>
-
-    <div style='font-size:1.15rem; margin-top:0.35rem;'>
-        Subsistema de Alimentación para Máquina Procesadora de Plátano
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
 # ════════════════════════
 # ════════════════════════════════════════════════════════════════════[...]
 # 1. RESUMEN EJECUTIVO
