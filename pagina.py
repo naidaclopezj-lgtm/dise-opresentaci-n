@@ -633,35 +633,35 @@ elif selected == "Prototipo":
     comerciales disponibles en Manizales para reducir costos y facilitar modificaciones.
     """)
 
- st.markdown("**Imágenes del prototipo construido**")
-
-col1, col2, col3, col4, col5 = st.columns(5)
-
-with col1:
-    try:
-        st.image(
-            "imagenes/prototipo1.jpg",
-            caption="Vista general del prototipo",
-            use_container_width=True
-        )
-    except:
-        st.info("📷 Imagen no disponible: prototipo1.jpg")
-
-with col2:
-    try:
-        st.image(
-            "imagenes/prototipo2.jpg",
-            caption="Detalle de bandas y transmisión",
-            use_container_width=True
-        )
-    except:
-        st.info("📷 Imagen no disponible: prototipo2.jpg")
-
-with col5:
-    try:
-        st.video("imagenes/video5.mov")
-    except:
-        st.warning("🎥 Video no disponible: video5.mov")
+     st.markdown("**Imágenes del prototipo construido**")
+    
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    with col1:
+        try:
+            st.image(
+                "imagenes/prototipo1.jpg",
+                caption="Vista general del prototipo",
+                use_container_width=True
+            )
+        except:
+            st.info("📷 Imagen no disponible: prototipo1.jpg")
+    
+    with col2:
+        try:
+            st.image(
+                "imagenes/prototipo2.jpg",
+                caption="Detalle de bandas y transmisión",
+                use_container_width=True
+            )
+        except:
+            st.info("📷 Imagen no disponible: prototipo2.jpg")
+    
+    with col5:
+        try:
+            st.video("imagenes/video5.mov")
+        except:
+            st.warning("🎥 Video no disponible: video5.mov")
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
