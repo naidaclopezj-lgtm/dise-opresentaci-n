@@ -5,6 +5,15 @@ import pandas as pd
 import numpy as np
 
 from pathlib import Path
+import streamlit as st
+import plotly.graph_objects as go
+import plotly.express as px
+import pandas as pd
+import numpy as np
+
+# ════════════════════════════════════════════════════════════════
+# CONFIGURACIÓN GENERAL
+# ════════════════════════════════════════════════════════════════
 
 st.set_page_config(
     page_title="Milestone 3 — Subsistema de Alimentación de Plátano",
@@ -13,11 +22,18 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ════════════════════════════════════════════════════════════════
+# ESTILOS CSS
+# ════════════════════════════════════════════════════════════════
+
 st.markdown("""
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;600&display=swap');
 
-html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
+html, body, [class*="css"] {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
 
 .report-title {
     font-family: 'Source Serif 4', serif;
@@ -27,13 +43,14 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
     line-height: 1.3;
     margin-bottom: 0.25rem;
 }
+
 .report-subtitle {
     font-size: 1rem;
     color: #4a5568;
     margin-bottom: 0.1rem;
 }
+
 .section-heading {
-    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     color: #1a3050;
@@ -42,66 +59,67 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
 }
+
 .metric-card {
     background: #ffffff;
     border: 1px solid #d0d5dd;
     border-top: 4px solid #1a3050;
     border-radius: 6px;
-    padding: 1rem 1.25rem;
+    padding: 1rem;
     text-align: center;
 }
+
 .metric-value {
     font-size: 1.6rem;
     font-weight: 600;
     color: #1a3050;
-    line-height: 1.2;
 }
+
 .metric-label {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: #6b7280;
-    margin-top: 0.25rem;
 }
-.metric-check {
-    font-size: 0.75rem;
-    color: #16a34a;
-    margin-top: 0.2rem;
-    font-weight: 500;
-}
+
 .stage-card {
     background: #f0f4f8;
     border-left: 4px solid #1a3050;
     border-radius: 4px;
-    padding: 1rem 1.25rem;
+    padding: 1rem;
     margin-bottom: 0.75rem;
 }
+
 .stage-title {
     font-weight: 600;
     color: #1a3050;
-    font-size: 0.95rem;
-    margin-bottom: 0.4rem;
 }
+
 .eq-box {
     background: #f8f7f4;
     border: 1px solid #d0d5dd;
     border-radius: 4px;
     padding: 0.75rem 1rem;
-    font-family: 'Courier New', monospace;
-    font-size: 0.88rem;
-    color: #1a3050;
+    font-family: monospace;
     margin: 0.5rem 0;
 }
-.result-ok { color: #16a34a; font-weight: 600; }
-.result-label { color: #4a5568; font-size: 0.85rem; }
-.divider { border: none; border-top: 1px solid #d0d5dd; margin: 1.5rem 0; }
+
+.divider {
+    border: none;
+    border-top: 1px solid #d0d5dd;
+    margin: 1.5rem 0;
+}
+
 .footer-text {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: #9ca3af;
     text-align: center;
-    padding: 1rem 0;
 }
+
 </style>
 """, unsafe_allow_html=True)
-# ── Header ─────────────────────────────────────────────────────────────
+
+# ════════════════════════════════════════════════════════════════
+# ENCABEZADO
+# ════════════════════════════════════════════════════════════════
 
 st.markdown("""
 <div style='background:#1a3050;
@@ -131,12 +149,14 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+# ════════════════════════════════════════════════════════════════
+# MENÚ LATERAL
+# ════════════════════════════════════════════════════════════════
+
 with st.sidebar:
 
-    st.markdown("## Navegación")
-
     selected = st.radio(
-        "",
+        "Navegación",
         [
             "Resumen ejecutivo",
             "Diseño del sistema",
@@ -144,8 +164,31 @@ with st.sidebar:
             "Evidencia",
             "Discusión",
             "Conclusiones"
-        ]
+        ],
+        key="menu_principal"
     )
+
+# ════════════════════════════════════════════════════════════════
+# CONTENIDO
+# ════════════════════════════════════════════════════════════════
+
+if selected == "Resumen ejecutivo":
+    pass
+
+elif selected == "Diseño del sistema":
+    pass
+
+elif selected == "Prototipo":
+    pass
+
+elif selected == "Evidencia":
+    pass
+
+elif selected == "Discusión":
+    pass
+
+elif selected == "Conclusiones":
+    pass
 # ════════════════════════════════════════════════════════════════════[...]
 # 1. RESUMEN EJECUTIVO
 # ════════════════════════════════════════════════════════════════════[...]
