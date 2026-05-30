@@ -635,7 +635,7 @@ elif selected == "Prototipo":
 
     st.markdown("**Imágenes del prototipo construido**")
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, colv5= st.columns(5)
     
     with col1:
         try:
@@ -748,7 +748,7 @@ elif selected == "Evidencia":
 
     st.markdown("### Evidencia en video")
 
-    colv1, colv2, colv3 = st.columns(3)
+    colv1, colv2, colv3,colv4 = st.columns(4)
 
     with colv1:
         try:
