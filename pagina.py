@@ -651,9 +651,9 @@ elif selected == "Prototipo":
     
     with colv5:
         try:
-            st.video("imagenes/video5.mp4")
+            st.video("imagenes/video5.mov")
         except:
-            st.warning("🎥 Video no disponible: video5.mp4")
+            st.warning("🎥 Video no disponible: video5.mov")
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
@@ -772,9 +772,9 @@ elif selected == "Evidencia":
 
     with colv4:
         try:
-            st.video("imagenes/video4.mp4")
+            st.video("imagenes/video4.mov")
         except:
-            st.warning("🎥 Video no disponible: video4.mp4")
+            st.warning("🎥 Video no disponible: video4.mov")
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
