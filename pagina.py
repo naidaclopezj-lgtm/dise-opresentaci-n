@@ -649,11 +649,13 @@ elif selected == "Prototipo":
         except:
             st.info("📷 Imagen no disponible: prototipo2.jpg")
     
-    with col3:
+    with colv5:
         try:
-            st.image("imagenes/prototipo3.jpg", caption="Sistema de alineación", use_column_width=True)
+            st.video("imagenes/video5.mp4")
         except:
-            st.info("📷 Imagen no disponible: prototipo3.jpg")
+            st.warning("🎥 Video no disponible: video5.mp4")
+
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
     st.markdown("**Comparación diseño final vs. prototipo construido**")
@@ -765,6 +767,14 @@ elif selected == "Evidencia":
             st.video("imagenes/video3.mp4")
         except:
             st.warning("🎥 Video no disponible: video3.mp4")
+
+    st.markdown('<hr class="divider">', unsafe_allow_html=True)
+
+    with colv4:
+        try:
+            st.video("imagenes/video4.mp4")
+        except:
+            st.warning("🎥 Video no disponible: video4.mp4")
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
