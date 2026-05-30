@@ -138,7 +138,32 @@ st.markdown("""
   </div>
 </div>
 """, unsafe_allow_html=True)
+# Logo institucional
+st.image(
+    "imagenes/logo-uam.png",
+    width=180
+)
 
+# Encabezado
+st.markdown("""
+<div style='background:#1a3050;
+            color:white;
+            padding:1.75rem 2rem;
+            border-radius:8px;
+            margin-bottom:1.5rem;'>
+
+    <div style='font-family:"Source Serif 4", serif;
+                font-size:1.9rem;
+                font-weight:600;'>
+        Diseño Final y Validación de Prototipo
+    </div>
+
+    <div style='font-size:1.15rem; margin-top:0.35rem;'>
+        Subsistema de Alimentación para Máquina Procesadora de Plátano
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
 # ════════════════════════
 # ════════════════════════════════════════════════════════════════════[...]
 # 1. RESUMEN EJECUTIVO
