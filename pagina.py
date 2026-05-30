@@ -342,7 +342,7 @@ elif selected == "Selección de concepto":
     st.plotly_chart(fig3, use_container_width=True)
 
 # ════════════════════════════════════════════════════════════════════[...]
-# 4. DISEÑO DEL SISTEMA
+# 4. O DEL SISTEMA
 # ════════════════════════════════════════════════════════════════════[...]
 elif selected == "Diseño del sistema":
     st.markdown('<div class="section-heading">4. Diseño del Sistema</div>', unsafe_allow_html=True)
@@ -363,7 +363,7 @@ elif selected == "Diseño del sistema":
           ("Ancho de banda", "120 mm"),
           ("Longitud", "1000 mm"),
           ("Velocidad de operación", "0.10–0.20 m/s"),
-          ("Función", "Eleva el producto desde la tolva a la etapa horizontal")]),
+          ("Función", "Baja el producto desde la tolva a la etapa horizontal")]),
         ("Etapa 3 — Banda horizontal de alineación",
          [("Material guías", "UHMW-PE grado alimenticio"),
           ("Longitud", "1400 mm"),
