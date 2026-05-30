@@ -4,17 +4,6 @@ import plotly.express as px
 import pandas as pd
 import numpy as np
 
-from pathlib import Path
-import streamlit as st
-import plotly.graph_objects as go
-import plotly.express as px
-import pandas as pd
-import numpy as np
-
-# ════════════════════════════════════════════════════════════════
-# CONFIGURACIÓN GENERAL
-# ════════════════════════════════════════════════════════════════
-
 st.set_page_config(
     page_title="Milestone 3 — Subsistema de Alimentación de Plátano",
     page_icon="⚙️",
@@ -22,18 +11,11 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ════════════════════════════════════════════════════════════════
-# ESTILOS CSS
-# ════════════════════════════════════════════════════════════════
-
 st.markdown("""
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;600&display=swap');
 
-html, body, [class*="css"] {
-    font-family: 'IBM Plex Sans', sans-serif;
-}
+html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 
 .report-title {
     font-family: 'Source Serif 4', serif;
@@ -43,14 +25,13 @@ html, body, [class*="css"] {
     line-height: 1.3;
     margin-bottom: 0.25rem;
 }
-
 .report-subtitle {
     font-size: 1rem;
     color: #4a5568;
     margin-bottom: 0.1rem;
 }
-
 .section-heading {
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     color: #1a3050;
@@ -59,136 +40,106 @@ html, body, [class*="css"] {
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
 }
-
 .metric-card {
     background: #ffffff;
     border: 1px solid #d0d5dd;
     border-top: 4px solid #1a3050;
     border-radius: 6px;
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     text-align: center;
 }
-
 .metric-value {
     font-size: 1.6rem;
     font-weight: 600;
     color: #1a3050;
+    line-height: 1.2;
 }
-
 .metric-label {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: #6b7280;
+    margin-top: 0.25rem;
 }
-
+.metric-check {
+    font-size: 0.75rem;
+    color: #16a34a;
+    margin-top: 0.2rem;
+    font-weight: 500;
+}
 .stage-card {
     background: #f0f4f8;
     border-left: 4px solid #1a3050;
     border-radius: 4px;
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     margin-bottom: 0.75rem;
 }
-
 .stage-title {
     font-weight: 600;
     color: #1a3050;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
 }
-
 .eq-box {
     background: #f8f7f4;
     border: 1px solid #d0d5dd;
     border-radius: 4px;
     padding: 0.75rem 1rem;
-    font-family: monospace;
+    font-family: 'Courier New', monospace;
+    font-size: 0.88rem;
+    color: #1a3050;
     margin: 0.5rem 0;
 }
-
-.divider {
-    border: none;
-    border-top: 1px solid #d0d5dd;
-    margin: 1.5rem 0;
-}
-
+.result-ok { color: #16a34a; font-weight: 600; }
+.result-label { color: #4a5568; font-size: 0.85rem; }
+.divider { border: none; border-top: 1px solid #d0d5dd; margin: 1.5rem 0; }
 .footer-text {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: #9ca3af;
     text-align: center;
+    padding: 1rem 0;
 }
-
 </style>
 """, unsafe_allow_html=True)
 
-# ════════════════════════════════════════════════════════════════
-# ENCABEZADO
-# ════════════════════════════════════════════════════════════════
+# ── Sidebar nav ──────────────────────────────────────────────────────────[...]
+with st.sidebar:
+    st.markdown("### ⚙️ Navegación")
+    sections = [
+        "Resumen ejecutivo",
+        "Requerimientos",
+        "Selección de concepto",
+        "Diseño del sistema",
+        "Análisis ingenieril",
+        "Resultados",
+        "Prototipo",
+        "Evidencia",
+        "Discusión",
+        "Conclusiones",
+    ]
+    selected = st.radio("Ir a sección", sections, label_visibility="collapsed")
+    st.markdown("---")
+    st.markdown("**Autores**")
+    st.markdown("Andrés F. Narváez Hoyos  \nNaida C. López")
+    st.markdown("**Curso**")
+    st.markdown("Diseño Mecánico I — UAM 2026-I")
+    st.markdown("**Instructor**")
+    st.markdown("César A. Álvarez Vargas")
 
+# ── Header ─────────────────────────────────────────────────────────────[...]
 st.markdown("""
-<div style='background:#1a3050;
-            color:white;
-            padding:1.75rem 2rem;
-            border-radius:8px;
-            margin-bottom:1.5rem;'>
-
-    <div style='font-family:"Source Serif 4", serif;
-                font-size:1.9rem;
-                font-weight:600;
-                line-height:1.2;'>
-        Diseño Final y Validación de Prototipo
-    </div>
-
-    <div style='font-size:1.15rem;
-                margin-top:0.35rem;'>
-        Subsistema de Alimentación para Máquina Procesadora de Plátano
-    </div>
-
-    <div style='font-size:0.9rem;
-                margin-top:0.7rem;
-                opacity:0.8;'>
-        Milestone 3 · Diseño Mecánico I · Universidad Autónoma de Manizales · 2026-I
-    </div>
-
+<div style='background:#1a3050; color:white; padding:1.75rem 2rem; border-radius:8px; margin-bottom:1.5rem;'>
+  <div style='font-family:"Source Serif 4",serif; font-size:1.7rem; font-weight:600; line-height:1.3;'>
+    Diseño Final y Validación de Prototipo
+  </div>
+  <div style='font-size:1.1rem; margin-top:0.3rem; opacity:0.9;'>
+    Subsistema de Alimentación para Máquina Procesadora de Plátano
+  </div>
+  <div style='font-size:0.85rem; margin-top:0.6rem; opacity:0.7;'>
+    Milestone 3 · Diseño Mecánico I · Universidad Autónoma de Manizales · 2026-I
+  </div>
 </div>
 """, unsafe_allow_html=True)
 
-# ════════════════════════════════════════════════════════════════
-# MENÚ LATERAL
-# ════════════════════════════════════════════════════════════════
-
-with st.sidebar:
-
-    selected = st.radio(
-        "Navegación",
-        [
-            "Resumen ejecutivo",
-            "Diseño del sistema",
-            "Prototipo",
-            "Evidencia",
-            "Discusión",
-            "Conclusiones"
-        ],
-        key="menu_principal"
-    )
-
-# ════════════════════════════════════════════════════════════════
-# CONTENIDO
-# ════════════════════════════════════════════════════════════════
-
-if selected == "Resumen ejecutivo":
-    pass
-
-elif selected == "Diseño del sistema":
-    pass
-
-elif selected == "Prototipo":
-    pass
-
-elif selected == "Evidencia":
-    pass
-
-elif selected == "Discusión":
-    pass
-
-elif selected == "Conclusiones":
-    pass
+# ════════════════════════
 # ════════════════════════════════════════════════════════════════════[...]
 # 1. RESUMEN EJECUTIVO
 # ════════════════════════════════════════════════════════════════════[...]
